@@ -41,7 +41,7 @@ function FormFilter() {
     
     fetchFiltersPraticien();
 
-  }, []); 
+  }, [setError]); 
 
 
   return (

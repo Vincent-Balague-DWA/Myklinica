@@ -33,7 +33,7 @@ function Map() {
             }
             getDataFromApi();
         }
-    }, [selectedFilter, selectedJob]);
+    }, [selectedFilter, selectedJob, setError]);
 
     // Distribue les informations récuprées de l'API dans le polygone leaflet correspondant (liés par le code EPCI)
     function splitEpcis(epcis) {

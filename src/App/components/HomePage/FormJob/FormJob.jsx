@@ -13,7 +13,7 @@ function FormJob() {
     const fetchFilters = async () => {
       try {
         // Retourne l'intitulé de tous les types de praticien de la BDD
-        const response = await fetch(`${process.env.REACT_APP_API_DONNEES_URL}/api/praticiens-liste`);
+        const response = await fetch(`${process.env.REACT_APP_API_DONNEES_URL}/api/praticiens-liste`,{headers:{'Content-type': 'application/json'}});
         const data = await response.json();
         setJobsList(data);
       } catch (error) {

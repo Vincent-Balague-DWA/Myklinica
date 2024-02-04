@@ -7,7 +7,7 @@ function InfoZrr({ codeEpci, selectedJob }) {
     // Fonction pour récupérer le zonage medecin de l'EPCI selectionné en fonction du praticien selectionné
     const fetchZrr = async () => {
         // Retourne La liste des villes et le zonage ZRR pour l'EPCI selectionné
-        const response = await fetch(`${process.env.REACT_APP_API_DONNEES_URL}/api/epci/communes/${codeEpci}/zrr_simp/`);
+        const response = await fetch(`${process.env.REACT_APP_API_DONNEES_URL}/api/epci/communes/${codeEpci}/zrr_simp/`,{headers:{'Content-type': 'application/json'}});
         const data = await response.json();
         setResponseZrr(data);
     }

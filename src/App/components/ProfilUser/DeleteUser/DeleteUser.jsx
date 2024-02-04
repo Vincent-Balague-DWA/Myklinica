@@ -27,7 +27,7 @@ export function DeleteUser({ setPage }) {
                 // Profil supprimé avec succès, définir un message de succès.
                 
                 setSuccess("Profil supprimé avec succès.");
-                 logout();               
+                logout();               
             } else {
                 const errorMessage = await response.text(); // Récupérez le message d'erreur du serveur
                 throw new Error(errorMessage);

@@ -18,7 +18,7 @@ function FormFilter() {
     const fetchFilters = async () => {
       try {
         // Retourne l'intitulé de tous les types de données relative aux EPCI de la BDD
-        const response = await fetch(`${process.env.REACT_APP_API_DONNEES_URL}/api/epcis/libelle-liste`);
+        const response = await fetch(`${process.env.REACT_APP_API_DONNEES_URL}/api/epcis/libelle-liste`,{headers:{'Content-type': 'application/json'}});
         const data = await response.json();
         setFilters(data);
       } catch (error) {
@@ -31,7 +31,7 @@ function FormFilter() {
     const fetchFiltersPraticien = async () => {
       try {
         // Retourne la liste de tous les types de données relative aux praticiens de la BDD
-        const response = await fetch(`${process.env.REACT_APP_API_DONNEES_URL}/api/praticiens-libelle-liste`);
+        const response = await fetch(`${process.env.REACT_APP_API_DONNEES_URL}/api/praticiens-libelle-liste`,{headers:{'Content-type': 'application/json'}});
         const data = await response.json();
         setFilterPraticien(data);
       } catch (error) {

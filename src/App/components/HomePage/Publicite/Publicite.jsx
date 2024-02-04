@@ -9,7 +9,7 @@ export default function App() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('https://myklinica.com/');
+                const response = await fetch('https://myklinica.com/',{headers:{'Content-type': 'application/json'}});
                 const data = await response.text();
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(data, "text/html");

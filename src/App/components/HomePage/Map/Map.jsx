@@ -15,7 +15,7 @@ function Map() {
         // Recupere tous les EPCI + l'info selectionné dans le filtre pour chaque EPCI depuis l'API (si filtre simple selectionné)
         if (selectedFilter[0] === 1) {
             const getDataFromApi = async () => {
-                const response = await fetch(`${process.env.REACT_APP_API_DONNEES_URL}/api/epcis/libelle/${selectedFilter[1]}`);
+                const response = await fetch(`${process.env.REACT_APP_API_DONNEES_URL}/api/epcis/libelle/${selectedFilter[1]}`,{headers:{'Content-type': 'application/json'}});
                 const data = await response.json();
                 setDataFromApi(data);
             }
@@ -24,7 +24,7 @@ function Map() {
         // Recupere tous les EPCI + l'info selectionné dans le filtre pour chaque EPCI depuis l'API (si filtre praticien selectionné)
         else if (selectedFilter[0] === 2) {
             const getDataFromApi = async () => {
-                const response = await fetch(`${process.env.REACT_APP_API_DONNEES_URL}/api/praticien/${selectedJob}/${selectedFilter[1]}`);
+                const response = await fetch(`${process.env.REACT_APP_API_DONNEES_URL}/api/praticien/${selectedJob}/${selectedFilter[1]}`,{headers:{'Content-type': 'application/json'}});
                 const data = await response.json();
                 setDataFromApi(data);
                 if (selectedFilter[1] === "evolution_sur_5_ans" && (selectedJob === "ergotherapeute" || selectedJob === "pediatre" || selectedJob === "neurologue" || selectedJob === "ORL" || selectedJob === "podologue" || selectedJob === "psychomotricien")) {
@@ -170,7 +170,7 @@ function Map() {
     async function updateInfoSelectedEpci(event) {
         const layer = event.target;
         try {
-            const response = await fetch(`${process.env.REACT_APP_API_DONNEES_URL}/api/epci/${layer.feature.properties.code}`);
+            const response = await fetch(`${process.env.REACT_APP_API_DONNEES_URL}/api/epci/${layer.feature.properties.code}`,{headers:{'Content-type': 'application/json'}});
             const data = await response.json();
             setSelectedEpciData(data);
         } catch (error) {

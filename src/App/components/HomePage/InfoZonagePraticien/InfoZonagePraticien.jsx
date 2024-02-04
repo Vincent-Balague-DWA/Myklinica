@@ -10,7 +10,7 @@ function InfoZonagePraticien({ codeEpci, selectedJob }) {
     const fetchZonnagePraticien = async () => {
         try {
             // Retourne La liste des villes et leur zonage pour l'EPCI selectionné et le pratitien selectionné
-            const response = await fetch(`${process.env.REACT_APP_API_DONNEES_URL}/api/epci/communes/${codeEpci}/zonage_${selectedJob}/`);
+            const response = await fetch(`${process.env.REACT_APP_API_DONNEES_URL}/api/epci/communes/${codeEpci}/zonage_${selectedJob}/`,{headers:{'Content-type': 'application/json'}});
             const data = await response.json();
             setResponseZonagePraticien(data);
         }
